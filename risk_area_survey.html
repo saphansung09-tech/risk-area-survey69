@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>สำรวจข้อมูลสถานการณ์พื้นที่เสี่ยงภัย เดือน พ.ย. 69</title>
+<style>
+  :root { --ink:#34443d; --muted:#75847b; --mint:#dcefe5; --cream:#fffaf0; --pink:#f7e3e5; --line:#e4e9e2; --accent:#638b76; }
+  * { box-sizing:border-box; }
+  body { margin:0; padding:24px 14px; background:linear-gradient(135deg,#f2f8f2,#fff8f1 55%,#fdf0f2); font-family:system-ui,-apple-system,"Segoe UI",Tahoma,sans-serif; color:var(--ink); }
+  .wrap { max-width:720px; margin:auto; }
+  .card { background:rgba(255,255,255,.92); border:1px solid #edf0e9; border-radius:24px; overflow:hidden; box-shadow:0 14px 40px rgba(77,100,81,.08); }
+  header { padding:28px 28px 24px; background:linear-gradient(120deg,#e3f2e7,#f8e9e9); }
+  h1 { font-size:clamp(1.3rem,4vw,1.8rem); line-height:1.45; margin:0; font-weight:750; }
+  header p { margin:8px 0 0; color:#62756a; font-size:.95rem; }
+  form { padding:24px 28px 30px; }
+  .field { margin-bottom:20px; }
+  label { display:block; font-weight:650; margin-bottom:8px; }
+  .hint { color:var(--muted); font-size:.84rem; margin-left:4px; font-weight:400; }
+  select,input { width:100%; border:1px solid var(--line); background:#fcfdfb; border-radius:12px; padding:13px 14px; font-size:1rem; color:var(--ink); outline:none; transition:.15s; }
+  select:focus,input:focus { border-color:#9fc4ad; box-shadow:0 0 0 3px #e4f2e8; }
+  input[type=number] { appearance:textfield; }
+  input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button { opacity:1; }
+  .buttons { display:flex; gap:12px; margin-top:26px; }
+  button { border:0; border-radius:12px; padding:13px 18px; font-size:1rem; font-weight:700; cursor:pointer; }
+  .submit { flex:1; background:#6e9b80; color:white; }
+  .submit:hover { background:#5c896e; }
+  .reset { background:#f2e9e9; color:#765f63; }
+  #status { display:none; margin:16px 0 0; padding:12px 14px; border-radius:12px; font-size:.95rem; }
+  #status.ok { display:block; background:#e8f5ec; color:#426c50; }
+  #status.err { display:block; background:#fff0ed; color:#9b5146; }
+  footer { padding:0 28px 22px; color:#89958d; font-size:.8rem; text-align:center; }
+  @media (max-width:520px) { body{padding:12px 10px;} header,form{padding:22px 18px;} .buttons{flex-direction:column;} .reset{width:100%;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card">
+    <header>
+      <h1>สำรวจข้อมูลสถานการณ์พื้นที่เสี่ยงภัย เดือน พ.ย. 69</h1>
+      <p>กรุณากรอกข้อมูลให้ครบถ้วนก่อนบันทึก</p>
+    </header>
+    <form id="survey" action="https://docs.google.com/forms/d/e/1FAIpQLSevqsk0pLvjuE_RUf665cqFy0stk3SJhonGFug0b2SyDyn8lw/formResponse" method="POST" target="submitFrame">
+      <div class="field">
+        <label for="district">ตำบล</label>
+        <select id="district" name="entry.1806087441" required>
+          <option value="" disabled selected>เลือกตำบล</option>
+          <option>ซับใหญ่</option><option>ท่ากูบ</option><option>ตะโกทอง</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="village">หมู่ที่</label>
+        <select id="village" name="entry.1531571787" required>
+          <option value="" disabled selected>เลือกหมู่</option>
+          <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="crop">ชนิดพืช</label>
+        <select id="crop" name="entry.940132920" required>
+          <option value="" disabled selected>เลือกชนิดพืช</option>
+          <option>ข้าว (ไร่)</option><option>มันสำปะหลัง</option><option>ข้าวโพดเลี้ยงสัตว์</option><option>อ้อยโรงงาน</option><option>มะม่วง</option><option>มะพร้าว</option><option>ลำไย</option><option>พริก</option><option>พืชผัก</option><option>พืช อื่นๆ</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="total">พื้นที่ปลูกทั้งหมด จำนวน (ไร่)</label>
+        <input id="total" name="entry.1495869145" type="number" min="0" step="any" inputmode="decimal" placeholder="กรอกจำนวนไร่" required>
+      </div>
+      <div class="field">
+        <label for="affected">พื้นที่ประสบภัย จำนวน (ไร่)</label>
+        <input id="affected" name="entry.2072287177" type="number" min="0" step="any" inputmode="decimal" placeholder="กรอกจำนวนไร่" required>
+      </div>
+      <div class="field">
+        <label for="watch">พื้นที่เฝ้าระวัง จำนวน (ไร่)</label>
+        <input id="watch" name="entry.2023839980" type="number" min="0" step="any" inputmode="decimal" placeholder="กรอกจำนวนไร่" required>
+      </div>
+      <div class="buttons">
+        <button class="submit" type="submit">บันทึกข้อมูล</button>
+        <button class="reset" type="reset">ล้างข้อมูล</button>
+      </div>
+      <div id="status" role="status" aria-live="polite"></div>
+    </form>
+    <footer>แบบสำรวจข้อมูลพื้นที่เสี่ยงภัย · บันทึกผ่าน Google Forms</footer>
+  </div>
+</div>
+<iframe name="submitFrame" id="submitFrame" title="ส่งข้อมูลเบื้องหลัง" style="display:none"></iframe>
+<script>
+  const form = document.getElementById('survey');
+  const statusBox = document.getElementById('status');
+  const frame = document.getElementById('submitFrame');
+  let waitingForResponse = false;
+  form.addEventListener('submit', () => {
+    waitingForResponse = true;
+    statusBox.className = '';
+    statusBox.style.display = 'none';;
+  });
+  frame.addEventListener('load', () => {
+    if (!waitingForResponse) return;
+    waitingForResponse = false;
+    statusBox.textContent = 'ส่งข้อมูลแล้ว ขอบคุณสำหรับการบันทึกข้อมูล';
+    statusBox.className = 'ok';
+    statusBox.style.display = 'block';
+    form.reset();
+  });
+</script>
+</body>
+</html>
